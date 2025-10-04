@@ -48,9 +48,9 @@ des_par <- function(data) {
     MEDIAN = round(des$median, 2),
     SD     = round(des$sd, 2),
     CV     = ifelse(des$mean == 0, NA, round(des$sd / des$mean * 100, 1)),
-    MIN    = des$min,
-    MAX    = des$max,
-    RANGE  = des$max - des$min,
+    MIN    = round(des$min, 2),
+    MAX    = round(des$max, 2),
+    RANGE  = round(des$max - des$min, 2),
     SKEW   = round(des$skew, 2),
     KURT   = round(des$kurtosis, 2)
   )
