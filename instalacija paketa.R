@@ -1,5 +1,5 @@
 
-#remove.packages("rstat")
+remove.packages("rstat")
 #install.packages(c("devtools", "roxygen2", "usethis"))
 
 #Potrebni alati 
