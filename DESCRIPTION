@@ -1,9 +1,9 @@
 Package: rstat
-Title: Funkcije za statističko grafičku obradu podataka
+Title: Funkcije za statističko-grafičku obradu podataka
 Version: 0.0.0.9000
 Authors@R: 
     person("Dražan", "Dizdar", , "drazan.dizdar@gmail.com", role = c("aut", "cre"))
-Description: Skup funkcija koje omogućavaju jednostzavnu stastističko grafičku obradu podataka.
+Description: Skup funkcija koje omogućavaju jednostavnu stastističko grafičku obradu podataka.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
