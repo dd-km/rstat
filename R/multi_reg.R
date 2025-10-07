@@ -1,14 +1,13 @@
 #' Višestruka regresijska analiza
 #'
-#' Funkcija izvodi višestruku regresijsku analizu na tablici podataka,
-#' uključujući standardne pogreške, t-vrijednosti, p-vrijednosti, standardizirane beta koeficijente,
-#' parcijalne korelacije, toleranciju i Durbin-Watson test. Također generira interaktivni Plotly bar graf.
+#' Funkcija izvodi višestruku regresijsku analizu na tablici podataka.
 #'
 #' @param df Data frame koji sadrži numeričke varijable za regresijsku analizu.
 #' @return Lista s elementima:
 #' \item{results_table}{Data frame koji sadrži regresijske koeficijente, SE, Beta, Part_R, R, P, Tolerance, t-vrijednosti i p-vrijednosti.}
 #' \item{plot}{Plotly bar graf standardiziranih koeficijenata.}
 #' \item{R_squared}{Koeficijent determinacije (R^2).}
+#' \item{SEE}{Standardnu pogrešku prognoze.}
 #' \item{F_value}{F statistika modela.}
 #' \item{F_p_value}{p-vrijednost F statistike.}
 #' \item{Durbin_Watson}{Rezultat Durbin-Watson testa za autokorelaciju reziduala.}
@@ -79,7 +78,7 @@ multi_reg <- function(df) {
   # Standardne greške i t-vrijednosti
   wjj <- solve(XTXi)
   seb <- se * sqrt(diag(wjj))
-  tb <- b / seb
+  tb <- b / se
   df_val <- n - m
   pval <- sapply(1:m, function(a) 2 * pt(abs(tb[a,1]), df_val, lower.tail = FALSE))
   
@@ -103,6 +102,7 @@ multi_reg <- function(df) {
     results_table = rez,
     plot = fig,
     R_squared = ro2,
+    SEE = se,
     F_value = Fval,
     F_p_value = pf_val,
     Durbin_Watson = dw
