@@ -4,7 +4,7 @@
 \alias{group_char_var}
 \title{Grupiranje kategorijalne varijable}
 \usage{
-group_char_var(x)
+group_char_var(df)
 }
 \arguments{
 \item{x}{Varijabla se biraju putem interaktivnog izbornika.}
