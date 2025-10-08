@@ -33,9 +33,7 @@ te vraća matrice faktorskih opterećenja, strukture, korelacijske matrice, fakt
 eigenvalue, kao i interaktivne grafove GK i PB kriterija te faktorskih opterećenja.
 }
 \details{
-Funkcija automatski provjerava potrebne pakete (\code{rstat}, \code{plotly}, \code{psych}, \code{reshape2}) i instalira ih ako nedostaju.
-Redovi s nedostajućim podacima u odabranim numeričkim varijablama se uklanjaju.
-Faktorski scorevi uključuju imena entiteta iz prvog stupca ulaznog data frame-a.
+Funkcija automatski provjerava potrebne pakete (\code{plotly}, \code{psych}, \code{reshape2}) i instalira ih ako nedostaju.
 }
 \examples{
 \dontrun{

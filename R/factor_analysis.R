@@ -24,9 +24,7 @@
 #' }
 #'
 #' @details
-#' Funkcija automatski provjerava potrebne pakete (`rstat`, `plotly`, `psych`, `reshape2`) i instalira ih ako nedostaju.  
-#' Redovi s nedostajućim podacima u odabranim numeričkim varijablama se uklanjaju.  
-#' Faktorski scorevi uključuju imena entiteta iz prvog stupca ulaznog data frame-a.
+#' Funkcija automatski provjerava potrebne pakete (`plotly`, `psych`, `reshape2`) i instalira ih ako nedostaju.  
 #'
 #' @examples
 #' \dontrun{
@@ -48,7 +46,6 @@ factor_analysis <- function(df) {
   # -------------------------------
   # Provjera i učitavanje paketa
   # -------------------------------
-  if (!require("rstat")) install.packages("rstat"); library(rstat)
   if (!require("plotly")) install.packages("plotly"); library(plotly)
   if (!require("psych")) install.packages("psych"); library(psych)
   if (!require("reshape2")) install.packages("reshape2"); library(reshape2)
@@ -110,7 +107,7 @@ factor_analysis <- function(df) {
   sel_factors <- select.list(choices_factors, multiple = FALSE, title = "Broj faktora:")
   num_factors <- ifelse(sel_factors == "", gk, as.integer(sel_factors))
   
-  rotation_type <- select.list(c("none", "varimax", "oblimin", "promax"),
+  rotation_type <- select.list(c("none", "varimax", "quartimax", "oblimin", "promax"),
                                title = "Tip rotacije:")
   
   message("Korišten broj faktora: ", num_factors, " | Rotacija: ", rotation_type)
