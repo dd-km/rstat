@@ -73,17 +73,17 @@ can_analysis <- function(df, vars1 = NULL, vars2 = NULL, interactive = TRUE) {
   # === Rezultati korelacija ===
   RC <- data.frame(
     CF = fnames,
-    Rc = round(rcca$corr, 3),
-    Chi_sq = round(rcca$chisq, 3),
+    Rc = round(rcca$corr, 4),
+    Chi_sq = round(rcca$chisq, 4),
     df = rcca$df,
-    p_value = round(p, 3)
+    p_value = round(p, 4)
   )
   
   # === Strukturalne korelacije i kanoničke varijable ===
-  F1 <- if (swap) round(rcca$ystructcorr, 3) else round(rcca$xstructcorr, 3)
-  F2 <- if (swap) round(rcca$xstructcorr, 3) else round(rcca$ystructcorr, 3)
-  CF1 <- if (swap) round(rcca$canvary, 3) else round(rcca$canvarx, 3)
-  CF2 <- if (swap) round(rcca$canvarx, 3) else round(rcca$canvary, 3)
+  F1 <- if (swap) round(rcca$ystructcorr, 4) else round(rcca$xstructcorr, 4)
+  F2 <- if (swap) round(rcca$xstructcorr, 4) else round(rcca$ystructcorr, 4)
+  CF1 <- if (swap) round(rcca$canvary, 4) else round(rcca$canvarx, 4)
+  CF2 <- if (swap) round(rcca$canvarx, 4) else round(rcca$canvary, 4)
   
   # Pretvaranje u data frame
   F1 <- as.data.frame(F1)
