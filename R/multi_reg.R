@@ -51,7 +51,8 @@ multi_reg <- function(df) {
   Fval <- (pss / dfp) / (rss / dfe)
   pf_val <- pf(Fval, dfp, dfe, lower.tail = FALSE)
   
-  dw <- durbinWatsonTest(lm(Y ~ X))
+df <- data.frame(Y = as.numeric(Y), X)
+dw <- car::durbinWatsonTest(lm(Y ~ ., data = df))
   
   XY <- cbind(X,Y)
   Z <- scale(X)
